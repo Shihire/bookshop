@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Row, Col, Button
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 const Book = ({ addToCart, id, author, cover_url, currency, pages, price, title }) => {
   const handleAddToCart = useCallback(() => addToCart(id), [id, addToCart]);
@@ -38,9 +39,9 @@ const Book = ({ addToCart, id, author, cover_url, currency, pages, price, title 
             </Row>
             <Row className="py-1">
               <Col xs="12">
-                <Button block color="primary">
+                <Link to="/order" className="btn btn-primary btn-block" onClick={handleAddToCart}>
                   Zamów
-                </Button>
+                </Link>
               </Col>
             </Row>
             <Row className="py-1">
