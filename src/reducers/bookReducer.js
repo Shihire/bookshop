@@ -13,11 +13,10 @@ const bookReducer = (books = initialState, action) => {
     }
     case 'RECEIVE_BOOKS': {
       if (action.response.status === 'error') {
-        //TODO: Error msg.
-        console.log(action.response.error);
         return {
           ...books,
           isFetching: false,
+          error: 'Błąd ładowania książek. Spróbuj ponownie później.'
         }
       } else {
         return {
