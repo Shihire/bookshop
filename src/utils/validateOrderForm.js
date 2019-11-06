@@ -1,10 +1,12 @@
+import XRegExp from 'xregexp';
+
 const validateOrderForm = values => {
   const errors = {}
   const regExps = {
     phone_number: /^[0-9]+$/,
     email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
     zip_code: /^[0-9]{2}-[0-9]{3}$/,
-    letters_only: new RegExp(/^\p{L}+$/u)
+    letters_only: XRegExp('^\\p{L}+$')
   }
 
   const required = 'To pole jest wymagane!';
